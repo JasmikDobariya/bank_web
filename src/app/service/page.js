@@ -139,7 +139,7 @@ import { CalculationWithGraph } from "../components/CalculationWithGraph";
 
     return (
       <>
-        <div className="bg-[#3d4454] p-4 sticky top-0" >
+        <div className="bg-[#3d4454] p-4 sticky top-0 z-[9999]" >
           <Navbar />
         </div>
         <section>
