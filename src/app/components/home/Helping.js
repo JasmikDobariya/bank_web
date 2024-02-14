@@ -24,7 +24,7 @@ const Helping = () => {
                 <h3 className="text-lg font-semibold">Personal Loan</h3>
               </div>
               <div>
-                <Link href="/" className="text-[15px]">
+                <Link href="/service" className="text-[15px]">
                   Know More
                 </Link>
               </div>
@@ -47,7 +47,7 @@ const Helping = () => {
                 <h3 className="text-lg font-semibold">Home Loan</h3>
               </div>
               <div>
-                <Link href="/" className="text-[15px]">
+                <Link href="/service" className="text-[15px]">
                   Know More
                 </Link>
               </div>
@@ -74,7 +74,7 @@ const Helping = () => {
                     </h3>
                   </div>
                   <div>
-                    <Link href="/" className="text-[15px]">
+                    <Link href="/service" className="text-[15px]">
                       Calculate Now
                     </Link>
                   </div>
@@ -101,7 +101,7 @@ const Helping = () => {
                     </h3>
                   </div>
                   <div className="">
-                    <Link href="/" className="text-[15px] ">
+                    <Link href="/service" className="text-[15px] ">
                       Calculate Now
                     </Link>
                   </div>
@@ -149,7 +149,7 @@ const Helping = () => {
                 </h3>
               </div>
               <div>
-                <Link href="/" className="text-[15px]">
+                <Link href="/service" className="text-[15px]">
                   Know More
                 </Link>
               </div>
@@ -176,7 +176,7 @@ const Helping = () => {
                     </h3>
                   </div>
                   <div>
-                    <Link href="/" className="text-[15px]">
+                    <Link href="/service" className="text-[15px]">
                       Calculate Now
                     </Link>
                   </div>
@@ -195,7 +195,7 @@ const Helping = () => {
                     </h3>
                   </div>
                   <div className="">
-                    <Link href="/" className="text-[15px] ">
+                    <Link href="/service" className="text-[15px] ">
                       Calculate Now
                     </Link>
                   </div>

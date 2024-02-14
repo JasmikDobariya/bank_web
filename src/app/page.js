@@ -3,12 +3,12 @@ import Link from "next/link";
 import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
 import PriceCheckOutlinedIcon from "@mui/icons-material/PriceCheckOutlined";
 import CreditScoreOutlinedIcon from "@mui/icons-material/CreditScoreOutlined";
-import Button from "./components/Button";
-import SliderImage from "./components/Slider";
-import MainSlider from "./components/MainSlide";
-import Helping from "./components/Helping";
-import Footer from "./components/Footer";
-import Work_Us from "./components/Work_Us";
+import Button from "./components/Button/Button";
+import SliderImage from "./components/home/Slider";
+import MainSlider from "./components/home/MainSlide";
+import Helping from "./components/home/Helping";
+import Footer from "./components/home/Footer";
+import Work_Us from "./components/home/Work_Us";
 
 export default function Home() {
   const homepage_card = [
@@ -265,7 +265,7 @@ export default function Home() {
       </section>
 
       <SliderImage />
-      <Work_Us/>
+      <Work_Us />
       <Helping />
       <Footer />
     </>

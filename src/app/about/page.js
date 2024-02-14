@@ -4,10 +4,10 @@ import {
   CircularProgressGuarantee,
   ProgressBar,
   ProgressBarOnline,
-} from "../components/CircularProgress";
-import Helping from "../components/Helping";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+} from "../components/home/CircularProgress";
+import Helping from "../components/home/Helping";
+import Navbar from "../components/home/Navbar";
+import Footer from "../components/home/Footer";
 
 const About = () => {
   return (

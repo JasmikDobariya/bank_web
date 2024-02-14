@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import Button from "./Button";
+import Button from "../Button/Button";
 
 const Footer = () => {
   return (

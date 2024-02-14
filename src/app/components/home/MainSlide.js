@@ -4,13 +4,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import Link from "next/link"; // Import Link from Next.js
-import Button from "./Button"; // Assuming Button is a custom component
-import Style from "../style/MainSlider.module.css";
+import Button from "../Button/Button"; // Assuming Button is a custom component
+import Style from "../../style/MainSlider.module.css";
 import Navbar from "./Navbar";
 
 function SimpleSlider() {
   const settings = {
+    autoplay: true,
+    autoplaySpeed: 3000,
     dots: false,
     infinite: true,
     arrows: false,

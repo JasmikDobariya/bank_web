@@ -1,10 +1,10 @@
   
   import React from "react";
-  import Button from "../components/Button";
+  import Button from "../components/Button/Button";
   import Image from "next/image";
-  import Navbar from "../components/Navbar";
-  import Footer from "../components/Footer";
-import { CalculationWithGraph } from "../components/CalculationWithGraph";
+  import Navbar from "../components/home/Navbar";
+  import Footer from "../components/home/Footer";
+import { CalculationWithGraph } from "../components/Calculation/CalculationWithGraph";
 
   const Services = () => {
     const card = [

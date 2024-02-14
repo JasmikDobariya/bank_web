@@ -4,11 +4,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
-import Style from '../style/Slider.module.css'
+import Style from '../../style/Slider.module.css'
 
 export default function SliderImage() {
   const settings = {
     dots: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
     infinite: true,
     speed: 500,
     arrows: false,

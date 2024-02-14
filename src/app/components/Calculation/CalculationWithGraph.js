@@ -2,8 +2,12 @@
 import React, { useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import CaculationFd from "./CaculationFd";
+import { ApplyNowButton } from "../Button/ApplyNowButton";
+import Link from "next/link";
 
 export function CalculationWithGraph() {
+  
   // ***************************************** personal Loan ********************************\\
 
   const [valuePersonalLoan, setValuePersonalLoan] = useState(50000);
@@ -132,7 +136,7 @@ export function CalculationWithGraph() {
   // ***************************************** Credit Card EMI ********************************\\
 
   const [valueCreditCardAmount, setValueCreditCardAmount] = useState(2500);
-  const [tenure, setTenure] = useState(6); // Default tenure is set to 6 months
+  const [tenure, setTenure] = useState(6);
 
   const handleChangeCreditCardAmount = (event) => {
     setValueCreditCardAmount(event.target.value);
@@ -142,12 +146,34 @@ export function CalculationWithGraph() {
     setTenure(event.target.value);
   };
 
-  const proccecingFees = 295;
+  const proccecingFees = parseInt(295);
 
   // Calculate EMI
   const calculateEMI = () => {
     const principal = parseFloat(valueCreditCardAmount);
-    const rateOfInterest = 3.65; // Assuming 2.5% interest rate for credit card EMI
+    let rateOfInterest = 0;
+
+    switch (parseInt(tenure)) {
+      case 24:
+        rateOfInterest = 0.96;
+        break;
+      case 18:
+        rateOfInterest = 1.26;
+        break;
+      case 12:
+        rateOfInterest = 1.85;
+        break;
+      case 9:
+        rateOfInterest = 2.45;
+        break;
+      case 6:
+        rateOfInterest = 3.65;
+        break;
+      default:
+        rateOfInterest = 3.65;
+        break;
+    }
+
     const months = parseInt(tenure);
 
     const monthlyInterestRatio = rateOfInterest / 100 / 12;
@@ -160,22 +186,65 @@ export function CalculationWithGraph() {
   // Calculate Total Interest
   const calculateTotalInterest = () => {
     const principal = parseFloat(valueCreditCardAmount);
-    const rateOfInterest = 3.65; // Assuming 2.5% interest rate for credit card EMI
+
     const months = parseInt(tenure);
 
-    const monthlyInterestRatio = rateOfInterest / 100 / 12;
     const totalInterest = calculateEMI() * months - principal;
     return totalInterest.toFixed(2);
   };
 
-  const c = ((calculateTotalInterest() * 18) / 100) * 6;
+  const months = parseInt(tenure);
+
+  const totalIntrestOnCreditCard = parseInt(
+    calculateTotalInterest() * months
+  ).toFixed(0);
+
+  const GstOnInterest = parseInt(
+    (calculateTotalInterest() * months * 18) / 100
+  ).toFixed(0);
+
+  const interest = (
+    calculateTotalInterest() * months +
+    parseInt(GstOnInterest) +
+    parseInt(proccecingFees)
+  ).toFixed(0);
+
+  const totalCreditCardBill =
+    parseInt(interest) + parseInt(valueCreditCardAmount);
+
+  const chartOptions = {
+    labels: ["Interest", "GST on Interest", "Processing Fees", "Loan Amount"],
+    colors: ["#FF4560", "#00E396", "#FEB019", "#008FFB"],
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200,
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+  };
+
+  const chartSeries = [
+    parseInt(totalIntrestOnCreditCard),
+    parseInt(GstOnInterest),
+    parseInt(proccecingFees),
+    parseInt(valueCreditCardAmount),
+  ];
+
+  console.log("chartSeries", chartSeries);
 
   return (
     <section>
       <div className="container m-auto">
-        <div className="grid grid-cols-3 border w-full h-full ">
-          <div className="border flex flex-col w-full">
-            <div className="m-5 p-5 border-2 border-gray-700 flex flex-col ">
+        <div className="grid grid-cols-3  w-full h-full ">
+          <div className=" flex flex-col w-full">
+            <div className="m-5 p-5 border-2 rounded-xl border-blue-500 flex flex-col ">
               <h1 className="text-center pb-5 font-bold text-[20px] text-blue-500">
                 Personal Loan Calculator
               </h1>
@@ -264,7 +333,7 @@ export function CalculationWithGraph() {
                   ₹{EmiPersonalLoan}
                 </div>
               </div>
-              <div className="flex justify-center items-center pt-5 ">
+              <div className="flex justify-center items-center py-5 ">
                 <ReactApexChart
                   key={valueMonthsPersonalLoan} // Add key prop to force re-render when valueMonthsPersonalLoan changes
                   options={ChartDataPersonalLoan?.options}
@@ -275,10 +344,13 @@ export function CalculationWithGraph() {
                   width="380"
                 />
               </div>
+              <Link href="/loan">
+              <ApplyNowButton />
+            </Link>
             </div>
           </div>
-          <div className="border flex flex-col w-full">
-            <div className="m-5 p-5 border-2 border-gray-700 flex flex-col ">
+          <div className=" flex flex-col w-full">
+            <div className="m-5 p-5 border-2 rounded-xl border-blue-500 flex flex-col ">
               <h1 className="text-center pb-5 font-bold text-[20px] text-blue-500">
                 Home Loan Calculator
               </h1>
@@ -367,7 +439,7 @@ export function CalculationWithGraph() {
                   ₹{EmiHomeLoan}
                 </div>
               </div>
-              <div className="flex justify-center items-center pt-5 ">
+              <div className="flex justify-center items-center py-5 ">
                 <ReactApexChart
                   key={valueYearsHomeLoan} // Add key prop to force re-render when valueMonthsPersonalLoan changes
                   options={ChartDataHomeLoan?.options}
@@ -378,15 +450,18 @@ export function CalculationWithGraph() {
                   width="380"
                 />
               </div>
+              <Link href="/">
+              <ApplyNowButton />
+            </Link>
             </div>
           </div>
 
-          <div className="m-5 p-5 border-2 border-gray-700 flex flex-col ">
+          <div className="m-5 p-5 border-2 rounded-xl border-blue-500 flex flex-col ">
             <h1 className="text-center pb-5 font-bold text-[20px] text-blue-500">
               Credit Card EMI Calculator
             </h1>
-            <div className="flex flex-col pb-1">
-              <h1>Loan Amount</h1>
+            <div className="flex flex-col pb-1 gap-2">
+              <h1 className="text-[18px] font-semibold">Loan Amount (₹)</h1>
               <div className="flex justify-center items-center text-center w-full">
                 <h1 className="font-medium text-[18px] border-2 border-r-0 border-solid border-blue-500 rounded-l-xl h-10 w-10 justify-center flex items-center">
                   ₹
@@ -394,13 +469,15 @@ export function CalculationWithGraph() {
                 <input
                   type="text"
                   value={valueCreditCardAmount}
+                  min={2500}
+                  max={2500000}
                   onChange={handleChangeCreditCardAmount}
                   className="border-2 border-solid rounded-e-xl border-blue-500 h-10 w-full p-2 focus:border-none"
                 />
               </div>
             </div>
-            <div className="flex flex-col pb-1">
-              <h1>Tenure (months)</h1>
+            <div className="flex flex-col gap-2 pt-3 pb-5">
+              <h1 className="text-[18px] font-semibold">Tenure (months)</h1>
               <div className="flex justify-center items-center text-center w-full">
                 <h1 className="font-medium text-[18px] border-2 border-r-0 border-solid border-blue-500 rounded-l-xl h-10 w-10 justify-center flex items-center">
                   <CalendarMonthIcon />
@@ -412,21 +489,50 @@ export function CalculationWithGraph() {
                 >
                   <option value="6">6</option>
                   <option value="9">9</option>
+                  <option value="12">12</option>
                   <option value="18">18</option>
                   <option value="24">24</option>
                 </select>
               </div>
             </div>
-            <div className="pb-1">
-              <h1>EMI: ₹{calculateEMI()}</h1>
-              <h1>
-                Total Interest: ₹
-                {calculateTotalInterest() * 6 + c + proccecingFees}
+            <div className="py-1 flex flex-col justify-between border gap-1  p-5">
+              <h1 className="flex justify-between text-[18px] font-semibold">
+                <span> Interest </span>
+                {totalIntrestOnCreditCard}₹
               </h1>
-              <h1>{c}</h1>
+              <h1 className="flex justify-between text-[18px] font-semibold">
+                <span> GST on Interest </span>
+                {GstOnInterest}₹
+              </h1>
+              <h1 className="flex justify-between text-[18px] font-semibold">
+                <span>Processing Fees</span> {proccecingFees}₹
+              </h1>
+              <hr />
+              <h1 className="flex justify-between text-[18px] font-semibold text-blue-500">
+                <span>Extra Payable </span> {interest}₹
+              </h1>
+              <h1 className="flex justify-between text-[18px] font-semibold">
+                <span>Loan Amount </span> {valueCreditCardAmount}₹
+              </h1>
+              <hr />
+              <h1 className="flex justify-between text-[19px] font-bold text-blue-500">
+                <span>Total Payable </span> {totalCreditCardBill}₹
+              </h1>
             </div>
+            <div className="flex justify-center items-center pt-10 pb-5 ">
+              <ReactApexChart
+                options={chartOptions}
+                series={chartSeries}
+                type="pie"
+                width="380"
+              />
+            </div>
+            <Link href="/">
+              <ApplyNowButton />
+            </Link>
           </div>
         </div>
+        <CaculationFd />
       </div>
     </section>
   );
