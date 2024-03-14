@@ -5,8 +5,8 @@ const Helping = () => {
     <section>
       <div className="container m-auto">
         <div className="py-10 ">
-          <div className="grid grid-cols-3 gap-4">
-            <div className=" border-2 gap-4 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
+          <div className="grid md:grid-cols-3 gap-4  p-5">
+            <div className=" border-2 md:gap-4 p-5 md:p-0 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
               <div className=" bg-[#1e1c4f] w-[120px] h-[120px] p-5 rounded-full flex justify-center items-center ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const Helping = () => {
                 </Link>
               </div>
             </div>
-            <div className="border-2 gap-4 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
+            <div className="border-2 gap-4 p-5 md:p-0 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
               <div className=" bg-[#1e1c4f] w-[120px] h-[120px] p-5 rounded-full flex justify-center items-center ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,8 +109,8 @@ const Helping = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4 pt-5">
-            <div className=" border-2 gap-4 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
+          <div className="grid md:grid-cols-3 gap-4 pt-5  p-5">
+            <div className=" border-2 gap-4 p-5 md:p-0 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
               <div className=" bg-[#1e1c4f] w-[120px] h-[120px] p-5 rounded-full flex justify-center items-center ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ const Helping = () => {
                 </Link>
               </div>
             </div>
-            <div className="border-2 gap-4 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
+            <div className="border-2 gap-4 p-5 md:p-0 border-[#1e1c4f]  rounded-3xl flex justify-center items-center flex-col">
               <div className=" bg-[#1e1c4f] w-[120px] h-[120px] p-5 rounded-full flex justify-center items-center ">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                   <path

@@ -92,7 +92,7 @@ const CaculationFd = () => {
   return (
     <section>
       <div className="container">
-        <div className="grid grid-cols-2 ">
+        <div className="grid md:grid-cols-2 ">
           <div className="p-5  mt-5 ">
             <div className="border-2 border-blue-500 rounded-xl p-5">
               <div className="text-[21px] text-blue-500 font-bold">

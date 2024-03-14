@@ -148,7 +148,7 @@ import { CalculationWithGraph } from "../components/Calculation/CalculationWithG
             <CalculationWithGraph />
           </div>
           <div className="container m-auto">
-            <div className="grid grid-cols-3 pt-8  items-center ">
+            <div className="grid md:grid-cols-3 pt-8  items-center p-5 md:p-0 ">
               {card.map((item, index) => (
                 <div
                   key={index}
@@ -177,7 +177,7 @@ import { CalculationWithGraph } from "../components/Calculation/CalculationWithG
           </div>
 
           <div className="container mx-auto py-10">
-            <div className="grid grid-cols-4 md:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-4  gap-4">
               {Use_card.map((step, index) => (
                 <div
                   key={index}
@@ -199,7 +199,7 @@ import { CalculationWithGraph } from "../components/Calculation/CalculationWithG
             <h2 className="text-center text-4xl pb-10 font-bold">
               Frequently Asked Questions
             </h2>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid md:grid-cols-3 gap-3 p-5 md:p-0">
               {faqs.map((faq, index) => (
                 <div
                   key={index}

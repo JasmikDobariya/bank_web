@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
 import PriceCheckOutlinedIcon from "@mui/icons-material/PriceCheckOutlined";
 import CreditScoreOutlinedIcon from "@mui/icons-material/CreditScoreOutlined";
@@ -147,7 +146,6 @@ export default function Home() {
   return (
     <>
       <MainSlider />
-
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {homepage_card.map((card, index) => (
@@ -166,10 +164,10 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="container m-auto px-20">
+        <div className="container m-auto md:px-20 px-5">
           <div className="py-20">
             <div className=" flex flex-col justify-center items-center pb-10">
-              <div className="w-[75%] text-center">
+              <div className="md:w-[75%] text-center">
                 <h1 className="text-4xl pb-5">A Few Words About Our Bank</h1>
                 <span className="text-[16px]">
                   Bank Progress was founded in 1999 to introduce the new level
@@ -178,8 +176,8 @@ export default function Home() {
                 </span>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-10">
-              <div className="col-1 ">
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="md:col-1 ">
                 <Image
                   src="/images/homepageabout.jpg"
                   height={300}
@@ -188,7 +186,7 @@ export default function Home() {
                   className="w-[600px] h-[300px] rounded-lg"
                 />
               </div>
-              <div className="flex items-center leading-[30px]">
+              <div className="flex items-center text-center md:leading-[30px]">
                 <p>
                   At Bank Progress, we are guided by a common purpose to help
                   make financial lives better by connecting clients and
@@ -204,7 +202,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-[#1e1c4f]">
-        <div className="container m-auto px-20 text-white">
+        <div className="container m-auto md:px-20 text-white">
           <div className="py-20 ">
             <div className=" flex flex-col justify-center items-center pb-10">
               <div className="w-[75%] text-center">
@@ -217,7 +215,7 @@ export default function Home() {
                 </span>
               </div>
             </div>
-            <div className="grid grid-cols-3 ">
+            <div className="grid md:grid-cols-3 ">
               <div className="flex items-center leading-[30px] col-2">
                 <div className="flex flex-col gap-2">
                   {homepage_phone.slice(0, 3).map((phone, index) => (

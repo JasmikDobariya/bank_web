@@ -109,10 +109,9 @@ export function ProgressBar() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setPercentage(75);
-    }, 100); // Change the time interval as needed
-
+    }, 100); 
     return () => clearTimeout(timer);
-  }, []); // Empty dependency array ensures the effect runs only once
+  }, []);
 
   return (
     <div className="">

@@ -237,13 +237,12 @@ export function CalculationWithGraph() {
     parseInt(valueCreditCardAmount),
   ];
 
-  console.log("chartSeries", chartSeries);
 
   return (
     <section>
       <div className="container m-auto">
-        <div className="grid grid-cols-3  w-full h-full ">
-          <div className=" flex flex-col w-full">
+        <div className="grid md:grid-cols-3  ">
+          <div className=" flex flex-col md:w-full">
             <div className="m-5 p-5 border-2 rounded-xl border-blue-500 flex flex-col ">
               <h1 className="text-center pb-5 font-bold text-[20px] text-blue-500">
                 Personal Loan Calculator
@@ -276,7 +275,7 @@ export function CalculationWithGraph() {
               </div>
               <div className="flex justify-between">
                 <h1 className="font-medium text-[18px]">Interest Rate (p.a)</h1>
-                <div className="border rounded-lg h-8 w-28 flex justify-center items-center text-center">
+                <div className="border rounded-lg h-8 md:w-28 flex justify-center items-center text-center">
                   {/* <span>{`${valueInterestPersonalLoan}%`}</span> */}
                   <input
                     type="text"
@@ -341,7 +340,7 @@ export function CalculationWithGraph() {
                     Number(data)
                   )}
                   type="pie"
-                  width="380"
+                  width="330"
                 />
               </div>
               <Link href="/loan">
@@ -357,7 +356,7 @@ export function CalculationWithGraph() {
               <div className="flex justify-between pb-1">
                 <h1 className="font-medium text-[18px]">Loan Amount(₹)</h1>
                 <div className="    flex justify-center items-center text-center">
-                  {/* <span>{valuePersonalLoan}</span> */}
+                  
                   <input
                     type="text"
                     value={`${valueHomeLoan} ₹`}
@@ -383,7 +382,7 @@ export function CalculationWithGraph() {
               <div className="flex justify-between">
                 <h1 className="font-medium text-[18px]">Interest Rate (p.a)</h1>
                 <div className="border rounded-lg h-8 w-28 flex justify-center items-center text-center">
-                  {/* <span>{`${valueInterestPersonalLoan}%`}</span> */}
+                 
                   <input
                     type="text"
                     value={`${valueInterestHomeLoan} %`}
@@ -409,7 +408,7 @@ export function CalculationWithGraph() {
               <div className="flex justify-between">
                 <h1 className="font-medium text-[18px]">Tenure (years)</h1>
                 <div className="border rounded-lg h-8 w-28 flex justify-center items-center text-center">
-                  {/* {valueMonthsPersonalLoan} */}
+                 
                   <input
                     type="text"
                     value={`${valueYearsHomeLoan}`}
@@ -441,13 +440,13 @@ export function CalculationWithGraph() {
               </div>
               <div className="flex justify-center items-center py-5 ">
                 <ReactApexChart
-                  key={valueYearsHomeLoan} // Add key prop to force re-render when valueMonthsPersonalLoan changes
+                  key={valueYearsHomeLoan} 
                   options={ChartDataHomeLoan?.options}
                   series={ChartDataHomeLoan?.series?.map((data) =>
                     Number(data)
                   )}
                   type="pie"
-                  width="380"
+                  width="330"
                 />
               </div>
               <Link href="/">
@@ -524,7 +523,7 @@ export function CalculationWithGraph() {
                 options={chartOptions}
                 series={chartSeries}
                 type="pie"
-                width="380"
+                width="330"
               />
             </div>
             <Link href="/">

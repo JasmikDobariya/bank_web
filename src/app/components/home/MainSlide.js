@@ -41,16 +41,16 @@ function SimpleSlider() {
       <Slider {...settings}>
         {slideContents.map((content, index) => (
           <div key={index} className="">
-            <div className="h-screen  w-screen items-center flex justify-center flex-col ">
+            <div className="lg:h-screen  lg:w-screen items-center flex justify-center flex-col ">
               <Image
                 src={content.image}
                 width={1000} 
                 height={1000} 
-                alt={content.alt} 
+                alt='img' 
                 className={`${Style.Man_image_set}`}
               />
               <div className="absolute flex justify-center flex-col text-center items-center ">
-                <p className="text-white  text-center w-[80%] text-6xl font-serif leading-[80px] z-20 ">
+                <p className="text-white  text-center md:w-[80%] w-[60%]  md:text-6xl text-xl font-serif md:leading-[80px] z-20 ">
                   {content.text}
                 </p>
                 <div className="pt-5 z-20 flex justify-center">

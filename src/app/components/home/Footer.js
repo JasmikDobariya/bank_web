@@ -8,7 +8,7 @@ const Footer = () => {
     <section>
       <div className="bg-[#1e1c4f]">
         <div className="container m-auto">
-          <div className="grid grid-cols-3 p-10 gap-16">
+          <div className="grid md:grid-cols-3 p-10 gap-16">
             <div className="flex flex-col gap-10">
               <div className="flex  gap-3 text-white items-center">
                 <svg
